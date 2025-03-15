@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InvestXPro Dashboard</title>
+    <link rel="stylesheet" href="styles3.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <header>
+            <h1>Welcome to InvestXPro</h1>
+            <div class="header-buttons">
+                <button id="withdraw">Withdraw</button>
+                <button id="logout">Logout</button>
+            </div>
+        </header>
+        <main>
+            <section class="active-plans">
+                <h2>Active Investments</h2>
+                <div id="active-plans-list">
+                    <p>No active investments.</p>
+                </div>
+            </section>
+            <section class="investment-plans">
+                <h2>Investment Plans</h2>
+                <div class="plans">
+                    <div class="plan">
+                        <h3>Basic Plan</h3>
+                        <p>Invest from $10 - $100</p>
+                        <button onclick="selectPlan('Basic Plan', 10, '10% per month')">Select</button>
+                    </div>
+                    <div class="plan">
+                        <h3>Standard Plan</h3>
+                        <p>Invest from $101 - $500</p>
+                        <button onclick="selectPlan('Standard Plan', 101, '12% per month')">Select</button>
+                    </div>
+                    <div class="plan">
+                        <h3>Premium Plan</h3>
+                        <p>Invest from $501 - $5000</p>
+                        <button onclick="selectPlan('Premium Plan', 501, '15% per month')">Select</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <script>
+        document.getElementById("logout").addEventListener("click", function() {
+            window.location.href = "login.html";
+        });
+        
+        document.getElementById("withdraw").addEventListener("click", function() {
+            window.location.href = "withdraw.html";
+        });
+
+        function selectPlan(plan, minAmount, growth) {
+            window.location.href = `investment-details.html?plan=${encodeURIComponent(plan)}&amount=${minAmount}&growth=${encodeURIComponent(growth)}`;
+        }
+    </script>
+</body>
+</html>
